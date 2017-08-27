@@ -6,5 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cocktail extends Model
 {
-    //
+    public function order()
+    {
+        $this->belongsTo(App\Order::class);
+    }
 }
