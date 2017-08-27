@@ -14,7 +14,10 @@ class AddOrderTable extends Migration
     public function up()
     {
         Schema::table('order', function (Blueprint $table) {
-            //
+            $table->increments('order_id');
+            $table->integer('total');
+            $table->string('server');
+            $table->timestamps();
         });
     }
 
@@ -26,7 +29,7 @@ class AddOrderTable extends Migration
     public function down()
     {
         Schema::table('order', function (Blueprint $table) {
-            //
+            $table->dropIfExists('order');
         });
     }
 }

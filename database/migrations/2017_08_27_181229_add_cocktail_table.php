@@ -14,7 +14,9 @@ class AddCocktailTable extends Migration
     public function up()
     {
         Schema::table('cocktail', function (Blueprint $table) {
-            //
+            $table->increments('id');
+            $table->string('name');
+            $table->string('image_url');
         });
     }
 
@@ -26,7 +28,7 @@ class AddCocktailTable extends Migration
     public function down()
     {
         Schema::table('cocktail', function (Blueprint $table) {
-            //
+            $table->dropIfExists('cocktail');
         });
     }
 }
