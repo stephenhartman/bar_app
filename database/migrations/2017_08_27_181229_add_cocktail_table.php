@@ -13,10 +13,11 @@ class AddCocktailTable extends Migration
      */
     public function up()
     {
-        Schema::table('cocktail', function (Blueprint $table) {
+        Schema::create('cocktail', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('image_url');
+            $table->timestamps();
         });
     }
 

@@ -13,7 +13,7 @@ class AddOrderTable extends Migration
      */
     public function up()
     {
-        Schema::table('order', function (Blueprint $table) {
+        Schema::create('order', function (Blueprint $table) {
             $table->increments('order_id');
             $table->integer('total');
             $table->string('server');
