@@ -13,7 +13,7 @@ class AddCocktailTable extends Migration
      */
     public function up()
     {
-        Schema::create('cocktail', function (Blueprint $table) {
+        Schema::create('cocktails', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('image_url');
@@ -28,8 +28,8 @@ class AddCocktailTable extends Migration
      */
     public function down()
     {
-        Schema::table('cocktail', function (Blueprint $table) {
-            $table->dropIfExists('cocktail');
+        Schema::table('cocktails', function (Blueprint $table) {
+            $table->dropIfExists('cocktails');
         });
     }
 }

@@ -13,9 +13,9 @@ class AddPriceToCocktails extends Migration
      */
     public function up()
     {
-        Schema::table('cocktail', function (Blueprint $table)
+        Schema::table('cocktails', function (Blueprint $table)
         {
-            $table->decimal('price', 5, 2)->change();
+            $table->decimal('price', 5, 2);
         }
     );
     }
@@ -27,7 +27,7 @@ class AddPriceToCocktails extends Migration
      */
     public function down()
     {
-        Schema::table('cocktail', function (Blueprint $table)
+        Schema::table('cocktails', function (Blueprint $table)
         {
             $table->dropColumn('price');
         }

@@ -8,6 +8,11 @@ class Order extends Model
 {
     public function cocktails()
     {
-        $this->hasMany(App\Cocktail::class);
+        $this->belongsToMany(App\Cocktail::class);
+    }
+
+    public function user()
+    {
+        $this->belongsTo(App\User::class);
     }
 }
