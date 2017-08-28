@@ -12,13 +12,13 @@
 
             <!-- Branding Image -->
             <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'Laravel') }}
+                Bar Application
             </a>
         </div>
 
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav nav col-md-6">
+            <ul class="navbar-nav nav">
             @if (Auth::guest())
             @else
                 @if (Auth::user()->is_admin)
