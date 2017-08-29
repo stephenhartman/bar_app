@@ -8,6 +8,6 @@ class Cocktail extends Model
 {
     public function order()
     {
-        $this->belongsToMany(App\Order::class);
+        $this->hasMany(Order::class);
     }
 }
