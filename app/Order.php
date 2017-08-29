@@ -6,13 +6,22 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-    public function cocktails()
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'total', 'user_id', 'cocktail_id',
+    ];
+
+    public function cocktail()
     {
-        $this->belongsToMany(App\Cocktail::class);
+        return $this->belongsTo(Cocktail::class);
     }
 
     public function user()
     {
-        $this->belongsTo(App\User::class);
+        return $this->belongsTo(User::class);
     }
 }

@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Order;
+use App\Cocktail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
 
 class OrdersController extends Controller
 {
@@ -19,6 +23,8 @@ class OrdersController extends Controller
      */
     public function index()
     {
+        $orders = Order::all();
+        return view('orders.index', compact('orders'));
     }
 
     /**
@@ -28,18 +34,8 @@ class OrdersController extends Controller
      */
     public function create()
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        $cocktails = Cocktail::all();
+        return view('orders.create', compact('cocktails'));
     }
 
     /**
@@ -50,32 +46,30 @@ class OrdersController extends Controller
      */
     public function show(Order $order)
     {
-        //
+        $cocktails = $order->cocktails()->get();
+        return view('orders.show', compact('cocktails', 'order'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Order $order)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Order $order)
-    {
-        //
-    }
+    public function store(Request $request){
 
+        $this->validate($request, array(
+            'cocktail_id' => 'required',
+        ));
+
+        $order = new Order();
+        $order->user_id = Auth::id();
+        $order->cocktail_id = $request->cocktail_id;
+
+        $cocktail = Cocktail::find($request->cocktail_id);
+        $order->total = $cocktail->price;
+
+        $order->save();
+
+        Session::flash('message', 'Order successfully placed!');
+
+        return view('orders.show', compact('order'));
+    }
     /**
      * Remove the specified resource from storage.
      *
@@ -84,6 +78,9 @@ class OrdersController extends Controller
      */
     public function destroy(Order $order)
     {
-        //
+        $order->delete();
+
+        Session::flash('message', 'Drink successfully removed from queue!');
+        return redirect()->route('orders.index');
     }
 }

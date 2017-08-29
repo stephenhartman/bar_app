@@ -13,23 +13,15 @@
                                 <thead>
                                     <tr>
                                         <td>Drink Name</td>
-                                        <td>Drink Price</td>
-                                        <td>Total</td>
+                                        <td>Price</td>
+                                        <td>Created at</td>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($order->cocktails as $cocktail)
                                     <tr>
-                                        <td>{{ $cocktail->name }}</td>
-                                        <td>{{ $cocktail->price }}</td>
-                                        {{ $total += $cocktail->price }}
-                                        <td></td>
-                                    </tr>
-                                    @endforeach
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td>{{ money_format('%.2n', $total) }}</td>
+                                        <td>{{ $order->cocktail->name }}</td>
+                                        <td>{{ money_format('%.2n', $order->total) }}</td>
+                                        <td>{{ \Carbon\Carbon::parse($order->created_at)->format('g:i A') }}</td>
                                     </tr>
                                 </tbody>
                             </table>
