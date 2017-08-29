@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class CocktailsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +18,8 @@ class CocktailsController extends Controller
      */
     public function index()
     {
-        //
+        $cocktails = Cocktail::all();
+        return view('cocktails.index', compact('cocktails'));
     }
 
     /**
@@ -24,7 +29,6 @@ class CocktailsController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -35,7 +39,6 @@ class CocktailsController extends Controller
      */
     public function store(Request $request)
     {
-        //
     }
 
     /**

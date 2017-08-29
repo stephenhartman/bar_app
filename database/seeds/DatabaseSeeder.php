@@ -22,33 +22,40 @@ class DatabaseSeeder extends Seeder
         }
         $users = factory(App\User::class, 10)->create();
 
-        DB::table('cocktail')->insert([
+        DB::table('cocktails')->insert([
                 'name' => "Beer",
-                'image_url' => "image/beer.png"
+                'image_url' => "image/beer.png",
+                'price' => 3.50
             ]);
-        DB::table('cocktail')->insert([
+        DB::table('cocktails')->insert([
                 'name' => "Red Wine",
-                'image_url' => "image/redwine.png"
+                'image_url' => "image/redwine.png",
+                'price' => 6.00
             ]);
-        DB::table('cocktail')->insert([
+        DB::table('cocktails')->insert([
                 'name' => "White Wine",
-                'image_url' => "image/whitewine.png"
+                'image_url' => "image/whitewine.png",
+                'price' => 6.00
             ]);
-        DB::table('cocktail')->insert([
+        DB::table('cocktails')->insert([
                 'name' => "Cosmopolitan",
-                'image_url' => "image/cosompolitan.png"
+                'image_url' => "image/cosmopolitan.png",
+                'price' => 8.00
             ]);
-        DB::table('cocktail')->insert([
+        DB::table('cocktails')->insert([
                 'name' => "Vodka Tonic",
-                'image_url' => "image/vodkatonic.png"
+                'image_url' => "image/vodkatonic.png",
+                'price' => 8.00
             ]);
-        DB::table('cocktail')->insert([
+        DB::table('cocktails')->insert([
                 'name' => "Whiskey Sour",
-                'image_url' => "image/whiskeysour.png"
+                'image_url' => "image/whiskeysour.png",
+                'price' => 8.00
             ]);
-        DB::table('cocktail')->insert([
+        DB::table('cocktails')->insert([
                 'name' => "Nyquil",
-                'image_url' => "image/nyquil.jpeg"
+                'image_url' => "image/nyquil.jpeg",
+                'price' => 11.00
             ]);
     }
 }
