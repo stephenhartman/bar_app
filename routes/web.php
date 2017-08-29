@@ -15,9 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('cocktails', 'CocktailsController');
-
-Route::resource('orders', 'OrdersController');
+Route::resource('orders', 'OrdersController', ['only' => [
+    'index', 'create', 'store', 'show', 'destroy',
+]]);
 
 Auth::routes();
 
