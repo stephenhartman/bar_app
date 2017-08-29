@@ -19,19 +19,18 @@
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav nav">
-            @if (Auth::guest())
-            @else
+            @if (!Auth::guest())
                 @if (Auth::user()->is_admin)
                     <li>
                         <a class="btn btn-secondary" href="{{ URL::to('orders/') }}">Order Queue</a>
                     </li>
                 @else
                     <li>
-                        <a class="btn btn-secondary" href="{{ URL::to('cocktails/') }}">Place an Order</a>
+                        <a class="btn btn-secondary" href="{{ URL::to('orders/create') }}">Place an Order</a>
                     </li>
-                </ul>
                 @endif
             @endif
+            </ul>
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
