@@ -20,7 +20,7 @@
                                 <tbody>
                                     <tr>
                                         <td>{{ $order->cocktail->name }}</td>
-                                        <td>{{ money_format('%.2n', $order->total) }}</td>
+                                        <td>{{ money_format('$%.2n', $order->total) }}</td>
                                         <td>{{ \Carbon\Carbon::parse($order->created_at)->format('g:i A') }}</td>
                                     </tr>
                                 </tbody>

@@ -27,7 +27,7 @@
                                         <td>{{ $order->cocktail->name }}</td>
                                         <td>{{ \Carbon\Carbon::parse($order->created_at)->format('g:i A') }}</td>
                                         <td>{{ $order->user->name }}</td>
-                                        <td>{{ money_format('%.2n', $order->total) }}</td>
+                                        <td>{{ money_format('$%.2n', $order->total) }}</td>
                                         <td>
                                             {{ Form::open(['method' => 'DELETE', 'route' => ['orders.destroy', $order]]) }}
                                             {{ Form::button('<i class="glyphicon glyphicon-trash"></i> Send Order ', array('type' => 'submit', 'data-id' => $order, 'class' => 'btn btn-danger', 'onclick' => "return confirm('Are you sure?')")) }}
