@@ -41,7 +41,8 @@ class OrdersController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Order  $order
+     * @param \App\Order $order
+     *
      * @return \Illuminate\Http\Response
      */
     public function show(Order $order)
