@@ -10,9 +10,9 @@ This is a project deliverable 0 for Senior Project CIS4327.
 
 ### Mac OSX
 
-1. Clone [VolunteerSystem repository](https://github.com/stephenhartman/VolunteerSystem) into project folder of choice
+1. Clone [bar_app repository](https://github.com/stephenhartman/bar_app) into project folder of choice
 
-`git clone https://github.com/stephenhartman/VolunteerSystem`
+`git clone https://github.com/stephenhartman/bar_app.git`
 
 2. Install [PHP](http://php.net/)
 
