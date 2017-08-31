@@ -21,10 +21,6 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-        $users = factory(App\User::class, 10)->create()->each(function ($u) {
-                $u->orders()->save(factory(App\Order::class)->make());
-        });
-
         DB::table('cocktails')->insert([
                 'name' => "Beer",
                 'image_url' => "image/beer.png",
@@ -60,5 +56,9 @@ class DatabaseSeeder extends Seeder
                 'image_url' => "image/nyquil.jpeg",
                 'price' => 11.00
             ]);
+
+        $users = factory(App\User::class, 10)->create()->each(function ($u) {
+                $u->orders()->save(factory(App\Order::class)->make());
+        });
     }
 }
