@@ -20,7 +20,10 @@ class DatabaseSeeder extends Seeder
                 'is_admin' => 1,
             ]);
         }
-        $users = factory(App\User::class, 10)->create();
+
+        $users = factory(App\User::class, 10)->create()->each(function ($u) {
+                $u->orders()->save(factory(App\Order::class)->make());
+        });
 
         DB::table('cocktails')->insert([
                 'name' => "Beer",
