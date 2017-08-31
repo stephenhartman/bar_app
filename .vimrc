@@ -9,7 +9,7 @@ map <leader>gf :CtrlPClearAllCaches<cr> :CtrlP features_wip<cr>
 
 "Plug for php"
 call plug#begin()
-Plug 'tpope/vim-dispatch' | Plug 'tpope/vim-projectionist' | Plug 'noahfrederick/vim-composer' | Plug 'noahfrederick/vim-laravel' | Plug 'jwalton512/vim-blade' | Plug 'StanAngeloff/php.vim'
+Plug 'tpope/vim-dispatch' | Plug 'tpope/vim-projectionist' | Plug 'noahfrederick/vim-composer' | Plug 'noahfrederick/vim-laravel' | Plug 'jwalton512/vim-blade' | Plug 'StanAngeloff/php.vim' | Plug 'vim-syntastic/syntastic'
 call plug#end()
 
 autocmd BufNewFile,BufRead *.blade.php set ft=html | set ft=phtml | set ft=blade
@@ -23,3 +23,7 @@ augroup phpSyntaxOverride
   autocmd!
   autocmd FileType php call PhpSyntaxOverride()
 augroup END
+
+"Syntastic settings"
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_php_checkers = ['php']

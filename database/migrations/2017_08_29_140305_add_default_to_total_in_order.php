@@ -29,7 +29,7 @@ class AddDefaultToTotalInOrder extends Migration
     {
         Schema::table('orders', function (Blueprint $table)
         {
-            $table->integer('total')->default(false)->change();
+            $table->integer('total')->default(null)->change();
         }
     );
     }
